@@ -30,6 +30,9 @@ import { CoursesService} from './courses.service';
     {{ course.releaseDate | date:'shortDate' }}
     <br/>
     {{ text | summary }}
+    <span class="glyphicon glyphicon-star-empty"></span>
+    <span class="glyphicon" [class.glyphicon-star]="isFavorite"></span>
+    <!--<button class="glyphicon glyphicon-star-empty"></button> -->
     `
 })
 export class CoursesComponent{
@@ -47,6 +50,7 @@ export class CoursesComponent{
         releaseDate: new Date(2016,1,14)
     };
     text = "Lorem fkeik cjbeakncol jbclkwnjec bjelcnwjenclwe cjwbelc"
+    isFavorite = false
 
     constructor(service: CoursesService) {
         this.courses = service.getCourses()
