@@ -91,8 +91,4 @@ export class CoursesComponent{
         console.log(this.newEmail)
     }
     
-    // setTimeout(()=>{},10);
-    // setTimeout(() => {
-        
-    // }, timeout);
 }
