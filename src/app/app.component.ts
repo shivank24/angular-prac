@@ -13,6 +13,11 @@ export class AppComponent {
     title:"Angular",
     isFavorite:false
   }
+  tweet = {
+    body: "Body of tweet",
+    likesCount: 100,
+    isLiked: false,
+  }
 
   onFavoriteChanged(eventArgs: FavoriteChangedEventArgs){
     console.log('Favorite Changed: ', eventArgs);

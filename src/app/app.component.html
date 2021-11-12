@@ -7,7 +7,7 @@
 <input type="text" [(ngModel)]="title">
 <br>
 {{title | titleCase}} -->
-
+<!-- 
 <favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></favorite>
 
 <bootstrap-panel>
@@ -16,4 +16,6 @@
         <h2>Body</h2>
         <p>Some content here...</p>
     </div>
-</bootstrap-panel>
+</bootstrap-panel> -->
+
+<app-likes [is-liked]="tweet.isLiked" [likes-count]="tweet.likesCount"></app-likes>
