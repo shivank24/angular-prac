@@ -18,4 +18,64 @@
     </div>
 </bootstrap-panel> -->
 
-<app-likes [is-liked]="tweet.isLiked" [likes-count]="tweet.likesCount"></app-likes>
+<!-- <app-likes [is-liked]="tweet.isLiked" [likes-count]="tweet.likesCount"></app-likes> -->
+
+<button (click)="onLoad()">Load Courses</button>
+<br>
+
+<div *ngIf="courses && courses.length>0; then coursesList else noCourses"></div>
+<ng-template #coursesList>
+    List of courses
+    <ul>
+        <li *ngFor="let course of courses; even as isEven;trackBy: trackCourse">
+            {{course.name}} <span *ngIf='isEven'>(EVEN) </span>
+            <button (click)="onDelete(course)">DELETE</button>
+        </li>
+    </ul>
+</ng-template>
+
+<button (click)="onAdd()">ADD</button>
+
+<ng-template #noCourses>
+    No courses yet
+</ng-template>
+
+<div [hidden]="!courses || courses.length == 0">
+    List of courses
+</div>
+<div [hidden]="courses && courses.length>0">
+    No courses
+</div>
+
+<br>
+
+<ul class="nav nav-pills">
+    <li [class.active]="viewMode=='map'"><a (click)="viewMode='map'">Map View</a></li>
+    <li [class.active]="viewMode=='list'"><a (click)="viewMode='list'">List View</a></li>
+</ul>
+
+<div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'">Map View Content</div>
+    <div *ngSwitchCase="'list'">List View Content</div>
+    <div *ngSwitchDefault>Other content</div>
+</div>
+
+<favorite></favorite>
+<br>
+
+<button
+    [ngStyle]="{
+        'backgroundColor': canSave ? 'blue': 'gray',
+        'color': canSave ? 'white': 'black',
+        'fontWeight': canSave ? 'bold': 'normal'
+    }"
+    (click)="onButtonClick('canSave')"
+>
+SAVE
+</button>
+
+<!-- <span>{{task.assignee?.name}}</span>   --> <!-- safe traversal/navigation operator-->
+
+<br>
+
+<input type="text" appInputFormat [format]="'lower'">
