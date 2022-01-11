@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ArchiveComponent } from './archive/archive.component';
 import { GithubFollowersComponent } from './github-followers/github-followers.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { HomeComponent } from './home/home.component';
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'followers',
     component: GithubFollowersComponent
+  },
+  {
+    path: 'archive/:year/:month',
+    component: ArchiveComponent
   },
   {
     path: 'posts',
