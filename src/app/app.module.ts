@@ -28,6 +28,10 @@ import { HomeComponent } from './home/home.component';
 import { GithubProfileComponent } from './github-profile/github-profile.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ArchiveComponent } from './archive/archive.component';
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './login/login.component';
+import { NoAccessComponent } from './no-access/no-access.component';
+import { fakeBackendProvider } from './helpers/fake-backend';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,10 @@ import { ArchiveComponent } from './archive/archive.component';
     HomeComponent,
     GithubProfileComponent,
     NotFoundComponent,
-    ArchiveComponent
+    ArchiveComponent,
+    AdminComponent,
+    LoginComponent,
+    NoAccessComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +70,9 @@ import { ArchiveComponent } from './archive/archive.component';
   ],
   providers: [
     CoursesService,
-    {provide: ErrorHandler, useClass: AppErrorHandler}
+    {provide: ErrorHandler, useClass: AppErrorHandler},
+    // For creating a mock back-end. You don't need these in a real app. 
+    fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })
